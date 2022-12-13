@@ -2,6 +2,7 @@
 // ox 퀴즈
 
 #include <stdio.h>
+#include <string.h>
 
 int main(void)
 {
@@ -14,7 +15,8 @@ int main(void)
     {
         scanf("%s", ox_string);
 
-        int count = sizeof(ox_string) / sizeof(char);
+        // int count = sizeof(ox_string) / sizeof(char);
+        int count = strlen(ox_string);
         int sum = 0;
         int consecutive_num = 0;
 
