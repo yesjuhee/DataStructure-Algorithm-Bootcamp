@@ -7,4 +7,4 @@
 |                                                  Day                                                  |       강의 내용        |   　날짜　   |             　비고　             |
 | :---------------------------------------------------------------------------------------------------: | :--------------------: | :----------: | :------------------------------: |
 | [**Day01**](https://github.com/yesjuhee/data_structure-algorithm-bootcamp/tree/main/Day01-BasicOfC_1) | Development env. Setup |  2022.12.12  |                　                |
-| [**Day02**](https://github.com/yesjuhee/data_structure-algorithm-bootcamp/tree/main/Day02-BasicOfC_2) |  Basic of C language   | 2022. 12. 13 | Operator, if, switch, for, while |
+| [**Day02**](https://github.com/yesjuhee/data_structure-algorithm-bootcamp/tree/main/Day02-BasicOfC_2) |  Basic of C language   | 2022. 12. 13 | operator, if, switch, for, while |
