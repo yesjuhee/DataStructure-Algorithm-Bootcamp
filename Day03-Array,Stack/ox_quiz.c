@@ -15,7 +15,6 @@ int main(void)
     {
         scanf("%s", ox_string);
 
-        // int count = sizeof(ox_string) / sizeof(char);
         int count = strlen(ox_string);
         int sum = 0;
         int consecutive_num = 0;
@@ -26,7 +25,6 @@ int main(void)
             {
                 consecutive_num += 1;
                 sum += consecutive_num;
-                // printf("j:%d, consec: %d, sum: %d\n", j, consecutive_num, sum);
             }
             else
             { // ox_string[j] == 'X'
@@ -39,3 +37,39 @@ int main(void)
 
     return 0;
 }
+
+/*
+ // 강사님 풀이
+
+#include <stdio.h>
+#include <string.h>
+
+int main(void)
+{
+    int i, j, n, score, sum;
+    char str[80];
+
+    scanf("%d", &n);
+
+    for(i = 0; i < n; i++)
+    {
+        sum = 0;
+        score = 1;
+        scanf("%s", str);
+
+        for(j = 0; str[j]; j++)
+        {
+            if(str[j] == 'O')
+            {
+                sum += score++;
+            }
+            else
+            {
+                score = 1;
+            }
+        }
+        printf("%d\n", sum);
+    }
+}
+
+ */
