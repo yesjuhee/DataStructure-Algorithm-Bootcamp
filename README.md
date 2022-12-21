@@ -9,5 +9,5 @@
 |     [**Day01**](https://github.com/yesjuhee/data_structure-algorithm-bootcamp/tree/main/Day01-BasicOfC_1)      | Development env. Setup | 2022.12.12 |                　                |
 |     [**Day02**](https://github.com/yesjuhee/data_structure-algorithm-bootcamp/tree/main/Day02-BasicOfC_2)      |  Basic of C language   | 2022.12.13 | operator, if, switch, for, while |
 |     [**Day03**](https://github.com/yesjuhee/data_structure-algorithm-bootcamp/tree/main/Day03-Array,Stack)     | Array, Pointer, String | 2022.12.14 |                                  |
-|        [**Day04**](https://github.com/yesjuhee/data_structure-algorithm-bootcamp/tree/main/Day04-Stack)        |         Stack          | 2022.12.14 |                                  |
-| [**Day05**](https://github.com/yesjuhee/data_structure-algorithm-bootcamp/tree/main/Day05-Struct%2CLinkedList) |  Struct, Linked List   | 2022.12.15 |                                  |
+|        [**Day04**](https://github.com/yesjuhee/data_structure-algorithm-bootcamp/tree/main/Day04-Stack)        |         Stack          | 2022.12.15 |                                  |
+| [**Day05**](https://github.com/yesjuhee/data_structure-algorithm-bootcamp/tree/main/Day05-Struct%2CLinkedList) |  Struct, Linked List   | 2022.12.16 |                                  |

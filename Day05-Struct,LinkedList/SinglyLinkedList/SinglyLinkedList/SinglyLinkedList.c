@@ -1,4 +1,3 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -15,8 +14,13 @@ linkedList_h* createLinkedList_h(void) {
 
 // Free all memories
 void freeLinkedList(linkedList_h* L) {
-    free(L->head);
-    L->head = NULL;
+    listNode* delete_node;
+    while(L->head != NULL)
+    {
+        delete_node = L->head;
+        L->head = L->head->link;
+        free(delete_node);
+    }
 }
 
 // Print all nodes
@@ -35,7 +39,8 @@ void print(linkedList_h* L) {
 // Insert new node at front
 void push_front(linkedList_h* L, char* x) {
     // 새 노드 동적 할당 & 세팅
-    listNode* new_node = (listNode*)malloc(sizeof(listNode));
+    listNode* new_node;
+    new_node = (listNode*)malloc(sizeof(listNode));
     strcpy(new_node->data, x);
     // 헤더가 가리키는 노드를 새 노드가 가리키도록 지정
     new_node->link = L->head;
@@ -47,7 +52,8 @@ void push_front(linkedList_h* L, char* x) {
 void push_back(linkedList_h* L, char* x) {
     listNode* current_node;
     // 새 노드 동적 할당 & 세팅
-    listNode* new_node = (listNode*)malloc(sizeof(listNode));
+    listNode* new_node;
+    new_node = (listNode*)malloc(sizeof(listNode));
     strcpy(new_node->data, x);
     new_node->link = NULL;
     // 리스트가 비어있을 경우 헤더를 연결하고 끝
@@ -58,7 +64,7 @@ void push_back(linkedList_h* L, char* x) {
     }
     // 처음부터 탐색하여 마지막 노드가 새 노드를 가리키도록 지정
     current_node = L->head;
-    while (current_node->link != NULL) // 마지막 노드 == 링크가 NULL인 노드임을 이용
+    while (current_node->link != NULL)
     {
         current_node = current_node->link;
     }
@@ -67,15 +73,16 @@ void push_back(linkedList_h* L, char* x) {
 
 // Insert new node behind pre node
 void insert(linkedList_h* L, listNode* pre, char* x) {
+    // 새 노드 동적 할당 & 세팅
+    listNode* new_node;
+    new_node = (listNode*)malloc(sizeof(listNode));
+    strcpy(new_node->data, x);
     // Error Handling : 잘못된 값 입력
     if (pre == NULL)
     {
         printf("Error : wrong input\n");
         return;
     }
-    // 새 노드 동적 할당 & 세팅
-    listNode* new_node = (listNode*)malloc(sizeof(listNode));
-    strcpy(new_node->data, x);
     // 새 노드의 링크 세팅 : 이전 노드가 가리키는 노드를 가리키도록 지정
     new_node->link = pre->link;
     // 이전 노드의 링크 세팅 : 새 노드를 가리키도록 지정
@@ -166,9 +173,14 @@ listNode* find(linkedList_h* L, char* x) {
 
 // Reverse the order of nodes in list
 void reverse(linkedList_h* L) {
+    // 3개의 포인터를 이용하여 값들을 임시로 저장
+    // new_head의 링크를 previous_node로 연결하고, 그 다음에 이용할 노드는 nex_node가 가리키고 있어야 함
     listNode *previous_node, *new_head, *next_node;
+    
     previous_node = L->head;
     new_head = NULL;
+    next_node = NULL;
+    
     while(previous_node != NULL)
     {
         // next_node, new_head, previous_node 한 칸씩 전진

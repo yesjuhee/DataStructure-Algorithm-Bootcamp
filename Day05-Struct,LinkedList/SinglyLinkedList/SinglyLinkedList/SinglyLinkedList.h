@@ -2,8 +2,8 @@
 
 // Node
 typedef struct ListNode {
-  char data[4];
-  struct ListNode* link;
+    char data[4];
+    struct ListNode* link;
 } listNode;
 
 // Header of singly linked list
