@@ -12,13 +12,14 @@ int main(void) {
     treeNode* n1 = makeRootNode('-', n2, n3);
 
     printf("\n preorder : ");
-    preorder(n1);
+    preorder_t(n1);
 
     printf("\n inorder : ");
     inorder(n1);
 
     printf("\n postorder : ");
-    postorder(n1);
+    postorder_t(n1);
 
-    getchar();  return 0;
+    getchar();
+    return 0;
 }

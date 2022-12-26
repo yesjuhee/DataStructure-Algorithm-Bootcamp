@@ -1,13 +1,15 @@
-//
-//  bst.h
-//  BinarySearchTree
-//
-//  Created by 노주희 on 2022/12/21.
-//
+#pragma once
 
-#ifndef bst_h
-#define bst_h
+typedef int element;
 
-#include <stdio.h>
+typedef struct treeNode {
+  element key;
+  struct treeNode* left;
+  struct treeNode* right;
+} treeNode;
 
-#endif /* bst_h */
+void inorder(treeNode* root);
+
+treeNode* find(treeNode* p, element x);
+treeNode* insert(treeNode* root, element x);
+void erase_node(treeNode* root, element key);

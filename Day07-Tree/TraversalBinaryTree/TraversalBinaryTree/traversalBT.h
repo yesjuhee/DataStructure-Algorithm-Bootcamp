@@ -1,13 +1,13 @@
 #pragma once
 typedef char element;
 
-typedef struct {
+typedef struct TreeNode{
     element data;
-    struct treeNode* left;
-    struct treeNode* right;
+    struct TreeNode* left;
+    struct TreeNode* right;
 } treeNode;
 
 treeNode* makeRootNode(element data, treeNode* leftNode, treeNode* rightNode);
-void preorder(treeNode* root);
+void preorder_t(treeNode* root);
 void inorder(treeNode* root);
-void postorder(treeNode* root);
+void postorder_t(treeNode* root);

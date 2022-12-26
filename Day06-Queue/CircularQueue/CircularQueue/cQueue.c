@@ -25,7 +25,7 @@ int isEmpty(QueueType* cQ) {
 // Check whether queue is full
 int isFull(QueueType* cQ) {
     // rear + 1 == front -> full
-    if ((cQ->rear+1 % cQ_SIZE) == cQ->front)
+    if (((cQ->rear+1) % cQ_SIZE) == cQ->front)
     {
         return 1;
     }
@@ -40,7 +40,7 @@ void push(QueueType* cQ, element item) {
         return;
     }
     // rear를 +1 하고 그 자리에 삽입
-    cQ->rear = cQ->rear+1 % cQ_SIZE;
+    cQ->rear = (cQ->rear+1) % cQ_SIZE;
     cQ->queue[cQ->rear] = item;
 }
 
@@ -52,7 +52,7 @@ element pop(QueueType* cQ) {
         return -1;
     }
     // front를 +1하고 front 자리의 요소를 반환
-    cQ->front = cQ->front+1 % cQ_SIZE;
+    cQ->front = (cQ->front+1) % cQ_SIZE;
     return cQ->queue[cQ->front];
 }
 
@@ -63,7 +63,7 @@ element front(QueueType* cQ) {
     {
         return -1;
     }
-    return cQ->queue[cQ->front+1 % cQ_SIZE];
+    return cQ->queue[(cQ->front+1) % cQ_SIZE];
 }
 
 // Return item at rear
