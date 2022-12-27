@@ -19,7 +19,7 @@ int min_node = 0;
 int get_smallest_node()
 {
     int min = INF;
-    int node = -1;
+    int node = 0;
     for (int i = 0; i < N; i++)
     {
         if (visited[i] == true)
@@ -43,14 +43,10 @@ void dijkstra(int start)
         dist[i] = weight[start][i];
     }
 
-    while (1)
+    for (int j = 0; j < N - 1; j++)
     {
         // 1. 최소 노드 추가
         min_node = get_smallest_node();
-        if (min_node == -1)
-        {
-            break;
-        }
         visited[min_node] = true;
 
         // 2. 1로 인해 단축되는 경로 있는지 확인하여 distance 값 수정
