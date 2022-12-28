@@ -3,3 +3,5 @@
 *.docx
 *.pdf
 *.xlsx
+*/*.DS_Store
+.DS_Store
