@@ -16,4 +16,5 @@
 |                                                    [**Day08**]()                                                    |          Heap          | 2022.12.22 |                                  |
 |                                                    [**Day09**]()                                                    |          Tree          | 2022.12.23 |                                  |
 |           [**Day10**](https://github.com/yesjuhee/data_structure-algorithm-bootcamp/tree/main/Day10-STL)            |          STL           | 2022.12.26 |                                  |
-|    [**Day11**](https://github.com/yesjuhee/data_structure-algorithm-bootcamp/tree/main/Day11-DynamicProgramming)    |          STL           | 2022.12.27 |                                  |
+|    [**Day11**](https://github.com/yesjuhee/data_structure-algorithm-bootcamp/tree/main/Day11-DynamicProgramming)    |  Dynamic Programming   | 2022.12.27 |                                  |
+|     [**Day12**](https://github.com/yesjuhee/data_structure-algorithm-bootcamp/tree/main/Day12-GreedyAlgorithm)      |    Greedy Algorithm    | 2022.12.28 |                                  |
