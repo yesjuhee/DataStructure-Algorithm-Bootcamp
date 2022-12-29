@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
-   uuid = "7A969E66-51B7-410F-9BD2-9253E1F0B327"
+   uuid = "E43BA249-C642-42F8-A690-9AA6DD5EBE74"
    type = "1"
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "27F25596-C565-46D8-8C72-7FA09E56A72A"
-            shouldBeEnabled = "No"
+            uuid = "0DD0EBAB-7246-4825-B1D9-E7E7C20F9DBB"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "baekjoon_12865/main.cpp"
+            filePath = "Kakao 2020/main.cpp"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "10"
-            endingLineNumber = "10"
-            landmarkName = "unknown"
-            landmarkType = "0">
+            startingLineNumber = "130"
+            endingLineNumber = "130"
+            landmarkName = "solution2(p)"
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
