@@ -28,55 +28,8 @@ treeNode* find(treeNode* root, element x)
 // If x already exists, do not insert
 treeNode* insert(treeNode* root, element x)
 {
-//    // 중복 여부 검사
-//    if (find(root, x) != NULL)
-//    {
-//        printf("Error : %d already exists!!\n", x);
-//        return NULL;
-//    }
-//
-//    // 삽입할 노드 생성, 할당
-//    treeNode* new_node;
-//    new_node = (treeNode*)malloc(sizeof(treeNode));
-//    new_node->key = x;
-//    new_node->left = NULL;
-//    new_node->right = NULL;
-//
-//    // 루트 존재 여부 검사
-//    if (root == NULL)
-//    {
-//        root = new_node;
-//        return root;
-//    }
-//
-//    // 삽입 위치 탐색 (부모 노드 찾기)
-//    treeNode* search_pointer = root;
-//    treeNode* parent_pointer = search_pointer;
-//    while (search_pointer != NULL)
-//    {
-//        parent_pointer = search_pointer;
-//        if (x > search_pointer->key)
-//        {
-//            search_pointer = search_pointer->right;
-//        }
-//        else // if (x < search_pointer->key)
-//        {
-//            search_pointer = search_pointer->left;
-//        }
-//    }
-//    // 삽입
-//    if (parent_pointer->key < x)
-//    {
-//        parent_pointer->right = new_node;
-//    }
-//    else
-//    {
-//        parent_pointer->left = new_node;
-//    }
-//    return root;
-    
     // solution : 재귀함수를 통해 x가 들어가야 할 말단 노드를 찾아줌
-    treeNode* current_node;
+    treeNode* current_node = root;
     if (current_node == NULL) // 말단 노드에 도착
     {
         // 새 노드 생성 후 반환
