@@ -69,133 +69,98 @@ treeNode* insert(treeNode* root, element x)
 // if 3: the node has one child
 // if 4: the node has two children (solution chose successor from left tree)
 void erase_node(treeNode* root, element key)
-{
-//    treeNode* delete_node = find(root, key);
-//    treeNode *current_node = NULL, *parent_node = NULL; // 탐색을 위한 포인터
-//    treeNode *temp_node = NULL, *new_root_node = NULL,
-//    *new_roots_parent_node = NULL;; // degree 2 인 노드 삭제를 위한 포인터
-//    int degree = 0, is_left = 0;
-//
-//    // case 1 : 존재하지 않는 key값 - 에러 처리
-//    if (delete_node == NULL)
-//    {
-//        printf("Error : %d does not exist!!\n", key);
-//        return;
-//    }
-//
-//    // 디그리 개수 세기
-//    if (delete_node->left != NULL) degree++;
-//    if (delete_node->right != NULL) degree++;
-//    // 부모 노드 찾기
-//    current_node = root;
-//    while(current_node->key != key)
-//    {
-//        parent_node = current_node;
-//        if (current_node->key < key)
-//        {
-//            current_node = current_node->right;
-//            is_left = 0;
-//        }
-//        else // current_node->key > key
-//        {
-//            current_node = current_node->left;
-//            is_left = 1;
-//        }
-//    }
-//
-//    // case 2 : 단말 노드 - 바로 삭제
-//    if (degree == 0)
-//    {
-//        if (parent_node == NULL) // delete_node가 root인 경우
-//        {
-//            root = NULL;
-//        }
-//        else if (is_left)
-//        {
-//            parent_node->left = NULL;
-//        }
-//        else //is_right
-//        {
-//            parent_node->right = NULL;
-//        }
-//
-//        free(delete_node);
-//        return;
-//    }
-//
-//    // case 3 : delete_node에 자식 노드 1개 존재 - 자식과 부모 연결
-//    if (degree == 1)
-//    {
-//        if (parent_node == NULL) // delete_node가 root인 경우
-//        {
-//            if (delete_node->left != NULL)
-//            {
-//                root = delete_node->left;
-//            }
-//            else
-//            {
-//                root = delete_node->right;
-//            }
-//
-//        }
-//        else if (delete_node->left != NULL) // 왼쪽에 자식을 가진 경우
-//        {
-//            if (is_left) parent_node->left = delete_node->left;
-//            else parent_node->right = delete_node->left;
-//        }
-//        else // 오른쪽에 자식을 가진 경우
-//        {
-//            if (is_left) parent_node->left = delete_node->right;
-//            else parent_node->right = delete_node->right;
-//        }
-//        free(delete_node);
-//        return;
-//    }
-//
-//    // case 4 : delete_node에 자식 노드 2개 존재 -> 오른쪽 서브 트리에서 가장 작은 자손으로 대체
-//    if (degree == 2)
-//    {
-//        // new_root_node 찾기 (오른쪽 서브트리에서 가장 왼쪽인 노드)
-//        new_roots_parent_node = delete_node;
-//        new_root_node = delete_node->right;
-//        while(new_root_node->left != NULL)
-//        {
-//            new_roots_parent_node = new_root_node;
-//            new_root_node = new_root_node->left;
-//        }
-//
-//        // temp_node를 new_node 부모의 오른쪽에 연결
-//        temp_node = (treeNode*)malloc(sizeof(treeNode));
-//        temp_node->key = -1;
-//        delete_node->right = temp_node;
-//
-//        // new_root_node의 자손들을 temp_node로 이동
-//        temp_node->left = NULL;
-//        temp_node->right = new_root_node->right;
-//        new_root_node->right = NULL;
-//
-//        // delete_node의 부모를 new_root_node와 연결
-//        if (parent_node == NULL)
-//        {
-//            root = new_root_node;
-//        }
-//        else if(is_left)
-//        {
-//            parent_node->left = new_root_node;
-//        }
-//        else
-//        {
-//            parent_node->right = new_root_node;
-//        }
-//
-//        // delete_node의 자손들을 new_root_node로 이동
-//        new_root_node->left = delete_node->left;
-//        new_root_node->right = delete_node->right;
-//
-//        // delete_node 삭제
-//        free(delete_node);
-//
-//        // temp_node 삭제
-//        erase_node(root, -1);
-//    }
+{    
+    treeNode *delete_node, *parent_node; // 삭제할 노드와 부모 노드
+    treeNode *succ, *succ_parent;         // 계승할 노드와 계승 노드의 부모 노드
+    treeNode *child;                     // 차수가 1일 때, 삭제할 노드의 자식 노드
+    
+    // delete_node와 parent_node 찾기
+    parent_node = NULL;
+    delete_node = root;
+    while((delete_node != NULL) && (delete_node->key != key))
+    {
+        parent_node = delete_node;
+        if (key < delete_node->key) delete_node = delete_node->left;
+        else delete_node = delete_node->right;
+    }
+    
+// case 1 : 존재하지 않는 key값 - 에러 처리
+    if (delete_node == NULL)
+    {
+        printf("Key %d does not exist.\n", key);
+        return;
+    }
+    
+// case 2 : 단말 노드 - 바로 삭제
+    if ((delete_node->left == NULL) && (delete_node->right == NULL))
+    {
+        if (parent_node == NULL) // delete_node가 root인 경우
+        {
+            // root만 제거하고 끝
+            root = NULL;
+        }
+        else if (parent_node->left == delete_node) // is_left
+        {
+            parent_node->left = NULL;
+        }
+        else //is_right
+        {
+            parent_node->right = NULL;
+        }
+        
+        free(delete_node);
+        return;
+    }
+// case 3 : delete_node에 자식 노드 1개 존재 - 자식과 부모 연결
+    else if ((delete_node->left == NULL) || (delete_node->right == NULL))
+    {
+        // 자식 노드가 delete_node의 왼쪽인지 오른쪽인지 체크
+        if (delete_node->left != NULL) child = delete_node->left;
+        else child = delete_node->right;
+        
+        if (parent_node == NULL) root = child;    // delete_node가 root일 경우 처리
+        else
+        {
+            if (parent_node->left == delete_node) //is_left
+            {
+                parent_node->left = child;
+            }
+            else                                  //is_right
+            {
+                parent_node->right = child;
+            }
+        }
+        
+        free(delete_node);
+        return;
+    }
+// case 4 : delete_node에 자식 노드 2개 존재 -> 왼쪽 서브 트리에서 가장 큰 자손으로 대체
+    else
+    {
+        // 계승자와 계승자 부모 찾기
+        succ_parent = delete_node;
+        succ = delete_node->left;
+        while (succ->right != NULL)
+        {
+            succ_parent = succ;
+            succ = succ->right;
+        }
+        
+        // 계승자를 고립시키기 위해 계승자의 부모와 계승자의 자식 연결
+        if (succ_parent->left == succ)
+        {
+            // 예외적인 경우 : 바로 왼쪽 자식이 왼쪽 서브트리에서 가장 큰 자손일 경우
+            succ_parent->left = succ->left;
+        }
+        else
+        {
+            // 일반적인 경우
+            succ_parent->right = succ->left;
+        }
+        // delete_node 자리의 key값을 계승자 노드의 key값으로 바꿔치기 하고 succ 노드는 해제시킴
+        delete_node->key = succ->key;
+        delete_node = succ;
+        free(delete_node);
+        return;
+    }
 }
