@@ -21,3 +21,6 @@
 |    [**Day11**](https://github.com/yesjuhee/data_structure-algorithm-bootcamp/tree/main/Day11-DynamicProgramming)    |  Dynamic Programming   | 2022.12.27 |                                  
 |     [**Day12**](https://github.com/yesjuhee/data_structure-algorithm-bootcamp/tree/main/Day12-GreedyAlgorithm)      |    Greedy Algorithm    | 2022.12.28 |                                  
 |                                                    [**Day13**]()                                                    |      Coding Test       | 2022.12.29 |                                  
+
+## 회고록 링크
+[성균관대학교 인공지능혁신공유대학사업단 자료구조 / 알고리즘 부트캠프 회고록](https://velog.io/@yesjuhee/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EB%B6%80%ED%8A%B8%EC%BA%A0%ED%94%84-%ED%9A%8C%EA%B3%A0%EB%A1%9D)
